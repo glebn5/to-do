@@ -1,0 +1,30 @@
+{% extends 'base/main.html' %}
+{% load static %}
+{% block content %}
+	{% if user.is_authenticated %}
+	<div class="auth">
+		<h1 class="auth__title">My todo</h1>
+		<div class="auth-container">
+			<h2 class="auth__user">{{user}}</h2>
+			<a href="{% url 'logout' %}" class="auth__link">Logout</a>
+		</div>
+	</div>
+	{% else %}
+	<div class="auth">
+		<h1 class="auth__title">My todo</h1>
+		<a href="{% url 'login' %}" class="auth__link">Login</a>
+	</div>
+	{% endif %}
+	<h2 class="task-title flex"><a class="back" href="{% url 'tasks' %}">&#8592; Go back   </a>{{task.title}}</h2>
+	
+	<form method="POST">
+			{%csrf_token%}
+			<div class="form__block"><label class="form-label" for="{{ form.title.id_for_label }}">{{form.title.label}}: </label>{{ form.title }}</div>
+			<div class="form__block"><label class="form-label" for="{{ form.description.id_for_label }}">{{form.description.label}}: </label>{{ form.description }}</div>
+			<div class="form__block-complete"><label class="form-label" for="{{ form.complete.id_for_label }}">{{form.complete.label}}: </label>{{ form.complete }}</div>
+			{% if task.date_create %}
+				<div class="form__block-create">Date create: {{task.date_create}}</div>
+			{% endif %}
+			<div class="form__block-submit"><input type="submit" value="Submit"></div>
+	</form>
+{% endblock content %}

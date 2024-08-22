@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@100..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+body {
+	background: #FBFBFB;
+	font-family: "Anek Devanagari", sans-serif;
+	font-weight: 500;
+}
+a {
+	text-decoration: none;
+}
+.back {
+	font-size: 15px;
+	color: #4a4a4a;
+	transition: .2s;
+}
+.back:hover {
+	transform: scale(1.1);
+}
+.flex {
+	display: flex;
+	column-gap: 10px;
+	align-items: center;
+}
+.line-through, .line-through .task__container-edit a {
+	text-decoration: line-through;
+	text-decoration-color: #797979;
+}
+.container {
+	background: #FFFFFF;
+	max-width: 575px;
+	margin: 15px auto;
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+	padding-bottom: 10px;
+}
+.auth {
+
+	box-shadow: 0 4px 10px -2px rgba(0, 0, 0, 0.2);
+	padding: 10px 20px;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 40px;
+}
+.auth__title {
+	text-align: center;
+	text-transform: uppercase;
+}
+.auth__user {
+	color: #4a4a4a;
+	font-size: 20px;
+	text-transform: capitalize;
+}
+.auth__link {
+	color: #a2a2a2;
+}
+.add-task {
+	text-align: center;
+	text-transform: uppercase;
+
+}
+.task__container {
+	display: flex;
+	justify-content: space-between;
+	text-align: center;
+	padding: 0 30px;
+}
+.task__container-title {
+	color: #4C4C4C;
+	max-width: 200px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.task__container-title a {
+	color: #4C4C4C;
+}
+.title-complete a {
+	color: hsl(0, 0%, 65%);
+}
+.form__block {
+	display: flex;
+	flex-direction: column;
+	width: 90%;
+	margin: 0 auto 10px;
+}
+.form__block-complete {
+	display: flex;
+	align-items: center;
+	margin-left: 5%;
+	margin-bottom: 10px;
+}
+.form__block-create {
+	display: flex;
+	align-items: center;
+	margin-left: 5%;
+	margin-bottom: 10px;
+}
+.form__block-submit {
+	display: flex;
+	flex-direction: column;
+	width: 50%;
+	margin: 0 auto 15px;
+}
+.form__block-submit input {
+	height: 50px;
+	border-radius: 20px;
+	background: linear-gradient(0deg, rgba(232,53,90) 0%, rgba(232,53,90) 100%);
+	border: none;
+}
+input[value='Submit'] {
+	color: white;
+	font-weight: 700;
+	text-transform: uppercase;
+	transition: .2s all;
+}
+input[value='Submit']:hover {
+	transform: translateY(-10px);
+}
+input[value='Submit']:active {
+	transform: translateY(-5px);
+}
+.task-title {
+	margin-left: 5%;
+}

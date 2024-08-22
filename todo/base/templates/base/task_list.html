@@ -1,0 +1,35 @@
+{% extends 'base/main.html' %}
+{% load static %}
+{% block content %}
+	{% if request.user.is_authenticated %}
+	<div class="auth">
+		<h1 class="auth__title">My todo</h1>
+		<div class="auth-container">
+			<h2 class="auth__user">{{ request.user}}</h2>
+			<a href="{% url 'logout' %}" class="auth__link">Logout</a>
+		</div>
+	</div>
+	{% else %}
+	<div class="auth">
+		<h1>My todo</h1>
+		<a href="{% url 'login' %}" class="auth__link">Login</a>
+	</div>
+	{% endif %}
+	
+	<h2 class="add-task"><a href="{% url 'add_task'  %}">Add new task</a></h2>
+	{% for task in tasks %}
+	<div class="task__container">
+		{% if task.complete == False %}
+			<h2 class="task__container-title"><a href="{% url 'task' task.id %}">{{task.title}}</a></h2>
+				<a href="{% url 'delete_task' task.id %}"><img src="{% static 'base/basket.png' %}" alt=""></a>
+		{% else %}
+			<div class="line-through">
+				<h2 class="task__container-title title-complete"><a href="{% url 'task' task.id %}">{{task.title}}</a></h2>
+			</div>
+			<a href="{% url 'delete_task' task.id %}"><img src="{% static 'base/basket.png' %}" alt=""></a>
+		{% endif %}
+	</div>
+	{% empty %}
+	<p>There are no tasks in this list</p>
+	{% endfor %}
+{% endblock content %}
