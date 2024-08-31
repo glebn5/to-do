@@ -9,6 +9,18 @@ body {
 a {
 	text-decoration: none;
 }
+input[type=text], input[type=password], textarea {
+	padding: 10px;
+	border-radius: 15px;
+	border: 2px solid rgba(232,53,90);
+}
+input[type=text]:focus, input[type=password]:focus,textarea:focus {
+	border: 3px solid rgb(248, 97, 91);
+	outline: 0;
+}
+textarea {
+	resize: vertical;
+}
 .back {
 	font-size: 15px;
 	color: #4a4a4a;
@@ -93,32 +105,38 @@ a {
 	display: flex;
 	align-items: center;
 	margin-left: 5%;
-	margin-bottom: 10px;
 }
 .form__block-submit {
 	display: flex;
 	flex-direction: column;
 	width: 50%;
-	margin: 0 auto 15px;
+	margin: 15px auto;
 }
-.form__block-submit input {
+input[type='submit'] {
 	height: 50px;
 	border-radius: 20px;
-	background: linear-gradient(0deg, rgba(232,53,90) 0%, rgba(232,53,90) 100%);
+	background: linear-gradient(135deg, rgb(248, 97, 91) 0%, rgba(232,53,90) 100%);
 	border: none;
-}
-input[value='Submit'] {
 	color: white;
 	font-weight: 700;
 	text-transform: uppercase;
 	transition: .2s all;
 }
-input[value='Submit']:hover {
+input[type='submit']:hover {
 	transform: translateY(-10px);
 }
-input[value='Submit']:active {
+input[type='submit']:active {
 	transform: translateY(-5px);
 }
 .task-title {
 	margin-left: 5%;
+}
+.sevenpercent {
+	width: 70%;
+}
+.align-center {
+	text-align: center;
+}
+.errorlist {
+	margin-left: 10%;
 }

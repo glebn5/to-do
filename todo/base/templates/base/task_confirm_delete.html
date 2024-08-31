@@ -1,10 +1,10 @@
 {% extends 'base/main.html' %}
 {% load static %}
 {% block content %}
-		<a href="{% url 'tasks' %}">&#10554; Go back</a>
+<h2 class="task-title flex"><a class="back" href="{% url 'tasks' %}">&#8592; Go back</a> Delete</h2>
 		<form method="post">
 				{% csrf_token %}
-				<p>Are you sure?</p>
-				<input type="submit" value="Delete">
+				<p class="align-center">Do you wanna delete this task?</p>
+				<div class="form__block-submit"><input type="submit" value="Delete"></div>
 		</form>
 {% endblock content %}

@@ -1,9 +1,22 @@
-<h1>Register</h1>
+{% extends 'base/main.html' %}
+{% load static %}
+{% block content %}
+<h1 class="align-center">Register</h1>
 
 <form method="post">
 	{% csrf_token %}
-	{{form.as_p}}
-	<input type="submit" value="Login">
+	{% for field in form %}
+		{% if field.errors %}
+		<ul class="errorlist">
+			{% for error in field.errors %}
+			<li>{{ error }}</li>
+			{% endfor %}
+		</ul>
+		{% endif %}
+		<div class="form__block sevenpercent"><label class="form-label" for="{{ field.id_for_label }}">{{field.label}}: </label>{{ field }}</div>
+	{% endfor %}
+	<div class="form__block-submit"><input type="submit" value="Register"></div>
 </form>
 
-<p>Are you have an account?<a href="{% url 'login' %}">Login</a></p>
+<p class="align-center">If you have an account 	&#8212;<a href="{% url 'login' %}"> Login</a></p>
+{% endblock content %}
